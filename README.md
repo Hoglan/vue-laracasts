@@ -1,2 +1,3 @@
 # vue-laracasts
-Vue laracasts
+
+Dipping toes into Vue via laracasts.
