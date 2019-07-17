@@ -7,9 +7,15 @@
     <body> 
 
         <div id="root">
-        
+
+            <h3>Using Moustache syntax</h3>
             <ul>
                 <li v-for="name in names">{{ name }}</li>
+            </ul>
+
+            <h3>Using v-text (same result)</h3>
+            <ul>
+                <li v-for="name in names" v-text="name"></li>
             </ul>
 
             <input type="text" id="input">
@@ -32,6 +38,7 @@
 
                 mounted(){
 
+                    //es6 way!
                     document.querySelector('#button').addEventListener('click', ()=> {
 
                         let name = document.querySelector('#input');
