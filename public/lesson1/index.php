@@ -7,7 +7,11 @@
     <body> 
 
         <div id="root">
-        
+
+            <input type="text" id="inputES6" />
+
+            <br/><br/>
+
             <input type="text" id="input" v-model="message" />
 
             <p>The value of the input is: {{ message }}</p>
@@ -18,7 +22,9 @@
 
         <script>
 
-            // document.querySelector('#input').value = data.message;
+            
+
+            //New spangled vue method
             new Vue({
 
                 el: '#root',
@@ -28,6 +34,13 @@
                 }
 
             })
+
+            //Es6 method - needs to be below vue to work alongside vue, if above vue, this doesn't work
+            let dataes6 = {
+                messagees6: 'Hello World'
+            };
+
+            document.querySelector('#inputES6').value = dataes6.messagees6;
         </script>
 
     </body> 
