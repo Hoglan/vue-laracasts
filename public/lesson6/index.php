@@ -24,7 +24,7 @@
 
             <ul>
             
-            <li v-for="(task, key) in tasks" v-if="task.completed">{{ task.description }}<input type="checkbox" @click="markComplete(key)"></li>
+            <li v-for="(task, key) in tasks" v-if="task.completed">{{ task.description }}<input type="checkbox" @click="markIncomplete(key)"></li>
             
             </ul>
 
@@ -32,7 +32,7 @@
 
             <ul>
             
-            <li v-for="(task, key) in incompleteTasks">{{ task.description }}<input type="checkbox" @click="markIncomplete(key)"></li>
+            <li v-for="(task, key) in tasks" v-if="!task.completed">{{ task.description }}<input type="checkbox" @click="markComplete(key)"></li>
             
             </ul>
 
@@ -64,14 +64,14 @@
                 methods:{
 
                     markComplete(key){
-                        
-                        this.tasks[key].completed = false
+
+                        this.tasks[key].completed = true
     
                     },
 
                     markIncomplete(key){
-                        
-                        this.tasks[key].completed = true
+
+                        this.tasks[key].completed = false
     
                     }
 
@@ -83,6 +83,10 @@
 
                         return this.message.split('').reverse().join('')
 
+                    },
+
+                    completeTasks(){
+                        return this.tasks.filter(task => task.completed);
                     },
 
                     incompleteTasks(){
